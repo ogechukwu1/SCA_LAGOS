@@ -88,7 +88,7 @@ To create s3 bucket using Aws cli you must have IAM user with s3 full access.
 ![](./images/16.png)
 
 
-BASH SCRIPT
+
 
 
 
