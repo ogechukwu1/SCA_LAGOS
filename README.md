@@ -28,7 +28,7 @@ Create an s3 bucket name `ogechukwu-scalagos`
 ![](./images/2.png)
 
 
-For object ownership keep it disabled, so s3 can also provide access based on access control list, the Aws account users can be given the access to the s3 bucket, but most of the bucket permission will be through policies. But when we want to make the s3 bucket public, then we need to enable ACL.
+For object ownership keep it disabled, so s3 can also provide access based on access control list, the Aws account users can be given the access to the s3 bucket, but most of the bucket permission will be through policies. But when we want to make the s3 bucket public, then we need to enable ACL(Access control list).
 
 ![](./images/3.png)
 
@@ -91,56 +91,93 @@ To create s3 bucket using Aws cli you must have IAM user with s3 full access.
 
 
 
+# ASSIGNMENT 2
+
+## RESEARCH AND HOST A SIMPLE WEBSITE ON S3
+
+
+By default, any object that you upload in the s3 bucket is made private .it can not be made public.
+
+
+Create the bucket `sca-lagos`
+
+![](./images/17.png)
+
+
+OPen the bucket, click on upload, add files, drag and drop all the files and click upload and all the files are uploaded.
+
+![](./images/18.png)
 
 
 
+![](./images/19.png)
+
+![](./images/20.png)
+
+We will create one more bucket to store the access logs of our website `sca-lagos2`
+
+![](./images/21.png)
+
+We wil make it public, go to permission and edit
+
+
+![](./images/22.png)
+
+Go to block all public access and uncheck it, then save and confirm.
+
+![](./images/23.png)
+
+Then for object ownership, we will enable the ACL and save changes.
+
+![](./images/24.png)
 
 
 
+![](./images/25.png)
 
 
+Go to the objects and select all of them, go to action and make public using ACL 
+
+![](./images/26.png)
 
 
+![](./images/27.png)
 
 
+The warning says it will be available on everybody on the internet. All the object are public but the website is accessed through the main index page `index.html`
+
+![](./images/28.png)
 
 
+Go to properties, there is an option static website hosting, click on edit and enable it. The document is index.html then save changes.
+
+![](./images/29.png)
 
 
+![](./images/30.png)
 
 
+![](./images/31.png)
+
+You will get the URL
+
+![](./images/32.png)
+
+For the access logs, enable it, specify the bucket browse it and choose the bucket and destination and save changes.
+
+![](./images/33.png)
 
 
+![](./images/34.png)
+
+Go the static website hosting and copy the URL, put it in the browser
+
+![](./images/35.png)
+
+The result
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](./images/36.png)
 
 
 
