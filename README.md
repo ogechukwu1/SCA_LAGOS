@@ -104,7 +104,7 @@ Create the bucket `sca-lagos`
 ![](./images/17.png)
 
 
-OPen the bucket, click on upload, add files, drag and drop all the files and click upload and all the files are uploaded.
+OPen the bucket, click on upload, add files, drag and drop all the files and click upload and all the files will be uploaded.
 
 ![](./images/18.png)
 
@@ -112,22 +112,29 @@ OPen the bucket, click on upload, add files, drag and drop all the files and cli
 
 ![](./images/19.png)
 
+
 ![](./images/20.png)
+
 
 We will create one more bucket to store the access logs of our website `sca-lagos2`
 
 ![](./images/21.png)
 
-We wil make it public, go to permission and edit
+
+We will make it public, go to permission and edit
 
 
 ![](./images/22.png)
 
+
 Go to block all public access and uncheck it, then save and confirm.
+
 
 ![](./images/23.png)
 
+
 Then for object ownership, we will enable the ACL and save changes.
+
 
 ![](./images/24.png)
 
@@ -137,6 +144,7 @@ Then for object ownership, we will enable the ACL and save changes.
 
 
 Go to the objects and select all of them, go to action and make public using ACL 
+
 
 ![](./images/26.png)
 
@@ -178,6 +186,271 @@ The result
 
 
 ![](./images/36.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ASSIGNMENT 4
+
+
+- Set up LAMP stack webserver using cloudformation. On your webserver Echo "sample web from SCAlagos TDD" created by your name and attendance number.
+
+- Let your webserver instance vpc and other resources be created with the suffix scatdd_your name_xxx.
+
+- Run your webserver and capture the screen, save screen shot on your repo .
+
+- Add readme that explains how to run the script.
+
+- Save your script to github repo and submit to the SCATDD assignment form.
+
+
+
+__SOLUTION__
+
+ 
+
+
+We'll go to cloudformation service
+
+![](./images/37.png)
+
+![](./images/38.png)
+
+
+
+We will create a directory name it `cloudformation` cd into the directory and open in our text sublime editor `vscode` `code ..`
+
+![](./images/39.png)
+
+Go to `file` and `open folder`
+
+![](./images/40.png)
+
+Go to the location where you have the directory and select folder.
+
+![](./images/41.png)
+
+
+Then create a file `example.yaml`
+
+![](./images/42.png)
+
+
+Your templates
+
+![](./images/50.png)
+
+![](./images/51.png)
+
+
+
+
+To get you `AMI ID`
+
+![](./images/43.png)
+
+
+Create a stack
+
+![](./images/44.png)
+
+
+
+Choose an existing template, upload a template, choose a file(find your template and upload)
+
+![](./images/45.png)
+
+
+Provide a stack name `SCATDD` and submit
+
+![](./images/46.png)
+
+
+
+Our stack is completed, and our instance is running
+
+![](./images/47.png)
+
+![](./images/48.png)
+
+
+But if our instance doesn't have tag, to give it a tag we'll update our stack and make changes to our template, go to your sublime text(vscode) and create another file and name it `updated.yaml` and give list of tags, give your instance a name `scatdd_ogechukwu_instance`
+
+
+![](./images/52.png)
+
+![](./images/53.png)
+
+![](./images/49.png)
+
+![](./images/54.png)
+
+Our update is complete
+
+
+![](./images/55.png)
+
+
+
+Install Necessary Softwares
+
+`sudo yum update -y` 
+
+`sudo yum install httpd php mysql -y`
+
+
+`sudo systemctl start httpd`: Starts the Apache HTTP server.
+
+`sudo systemctl enable httpd`: Configures Apache to start on boot.
+
+`sudo systemctl status httpd`
+
+
+![](./images/57.png)
+
+
+![](./images/58.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
