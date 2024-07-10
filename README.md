@@ -51,7 +51,9 @@ __Encryption type__
 
 AWS CLI must be installed and configured with the necessary permissions.
 
-AWS account credentials with permissions to create S3 buckets, IAM users, and policies.
+- open your powershell as an administrator 
+
+- run the command `choco install awscli` and open through git bash
 
 
 
@@ -69,17 +71,31 @@ To create s3 bucket using Aws cli you must have IAM user with s3 full access.
 
 ![](./images/9.png)
 
+
+
 ![](./images/10.png)
 
-
+when the user is created, click on the username, go to the security crendentials and create the access keys
 
 ![](./images/11.png)
 
 ![](./images/12.png)
 
 
+
 ![](./images/13.png)
 
+- open your powershell as an administrator 
+
+- run the command 
+
+`choco install awscli`
+
+open through git bash and configure aws cli
+
+`aws --version`
+
+`aws configure`
 
 ![](./images/14.png)
 
@@ -100,7 +116,7 @@ Create the bucket `sca-lagos`
 ![](./images/17.png)
 
 
-OPen the bucket, click on upload, add files, drag and drop all the files and click upload and all the files will be uploaded.
+Open the bucket, click on upload, add files, drag and drop all the files and click upload and all the files will be uploaded.
 
 ![](./images/18.png)
 
@@ -220,7 +236,7 @@ The result
 
 __TERMINOLOGIES IN CLOUDFORMATIONS__
 
-- TEMPLATES: Are the text files or the script of cloud formation, but not scripts in programming language. You can write them in YAML or JSON format.
+- __TEMPLATES__: Are the text files or the script of cloud formation, but not scripts in programming language. You can write them in YAML or JSON format.
 
 Cloud formation will read templates as an input and the output will be resource that will create and maintain the stack
 
