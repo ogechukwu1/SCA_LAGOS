@@ -1,18 +1,18 @@
 # SCA_LAGOS
-## Assignments on s3 and IAM 
+## S3 BUCKET AND IAM 
 
 
-__Assignment 1__
 - create s3 bucket from cli, name of s3 bucket should be your name_scalagos.
 
-__Assignment 2__
 - create IAM user 
+
 - Attach a policy to read s3 bucket AmazonS3ReadOnlyAccess.
+
 - create Access keys for the user.
+
 - create a git repo and push your script to the repo with process screenshot, name user sca_lagos
 
 
-__optional__: You can compile your work in a bash script, such that it is easy to run and add a readme file to your repo.
 
 
 
@@ -88,10 +88,6 @@ To create s3 bucket using Aws cli you must have IAM user with s3 full access.
 ![](./images/16.png)
 
 
-
-
-
-# ASSIGNMENT 2
 
 ## RESEARCH AND HOST A SIMPLE WEBSITE ON S3
 
@@ -205,9 +201,7 @@ The result
 
 
 
-
-
-# ASSIGNMENT 4
+## CLOUDFORMATION
 
 
 - Set up LAMP stack webserver using cloudformation. On your webserver Echo "sample web from SCAlagos TDD" created by your name and attendance number.
@@ -222,8 +216,59 @@ The result
 
 
 
-__SOLUTION__
 
+
+__TERMINOLOGIES IN CLOUDFORMATIONS__
+
+- TEMPLATES: Are the text files or the script of cloud formation, but not scripts in programming language. You can write them in YAML or JSON format.
+
+Cloud formation will read templates as an input and the output will be resource that will create and maintain the stack
+
+Textfiles- YAML or JSON
+
+Here is an example of an AWS CloudFormation YAML template that creates a simple setup with an EC2 instance and a security group
+
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A simple AWS CloudFormation template to create an EC2 instance with a security group.
+
+Resources:
+  MyEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0c55b159cbfafe10
+      SecurityGroups:
+        - Ref: MySecurityGroup
+      KeyName: MyKeyPair  
+
+  MySecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Allow SSH and HTTP access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: '0.0.0.0/0'
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: '0.0.0.0/0'
+
+Outputs:
+  InstanceId:
+    Description: The Instance ID of the newly created EC2 instance
+    Value: !Ref MyEC2Instance
+  PublicIP:
+    Description: The public IP address of the newly created EC2 instance
+    Value: !GetAtt MyEC2Instance.PublicIp
+```
+
+
+
+__SOLUTION__
  
 
 
@@ -235,7 +280,7 @@ We'll go to cloudformation service
 
 
 
-We will create a directory name it `cloudformation` cd into the directory and open in our text sublime editor `vscode` `code ..`
+We will create a directory and name it `cloudformation` then cd into the directory and open in our text sublime editor vscode using `code ..`
 
 ![](./images/39.png)
 
