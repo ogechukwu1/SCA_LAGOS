@@ -85,13 +85,11 @@ when the user is created, click on the username, go to the security crendentials
 
 ![](./images/13.png)
 
-- open your powershell as an administrator 
-
-- run the command 
+- open your powershell as an administrator and run the command 
 
 `choco install awscli`
 
-open through git bash and configure aws cli
+- open through git bash and configure aws cli
 
 `aws --version`
 
