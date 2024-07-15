@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: cloudformation template to create a LAMP stack and deploy a sample webpage.
+
+Resources:
+  MyEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro'
+      SecurityGroups:
+        - Ref: InstanceSecurityGroup
+      KeyName: oges-key 
+      ImageId: ami-055db685a6d9d5646 # Amazon linux 2 AMI 
+      Tags:
+        - key: "Name"
+          Value: "scatdd_ogechukwu_instance"
+      UserData:
+        Fn::Base64: 
+          !Sub |
+            #!/bin/bash
+            yum update -y
+            yum install -y httpd php mysql
+            systemctl start httpd
+            systemctl enable httpd
+            echo "<?php phpinfo(); ?>" > /var/www/html/index.php
+            echo "sample web from scalagos TDD created by ogechukwu_03" > /var/www/html/index.html
+            chown -R apache:apache /var/www/html
+
+  
+  InstanceSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable SSH and HTTP access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: '0.0.0.0/0'
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: '0.0.0.0/0'
+
