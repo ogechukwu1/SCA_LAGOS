@@ -522,7 +522,7 @@ __Create Alias Record in Route 53__
 
 - Click "Create Record Set".
 
-- Set the "Name" field to your domain name (leave it blank for the root domain).
+- Set the "Name" field to your domain name (leave it blank for the root domain) means that you are setting a record for the root domain itself, without any subdomain.
 
 - Choose "A - IPv4 address" for the type.
 
@@ -534,6 +534,8 @@ __Create Alias Record in Route 53__
 ![](./images/75.png)
 
 ![](./images/76.png)
+
+
 
 ![](./images/77.png)
 
