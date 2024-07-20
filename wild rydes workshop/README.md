@@ -269,9 +269,9 @@ Click on Create new role, check that Amplify is selected and click Next permissi
 
 Give the Role a new name: wildrydes-backend-role and click Create role.
 
-Search for wildrydes-backend-role from the search filter, and click the role name.
+Search for `wildrydes-backend-role` from the search filter, and click the role name.
 
-Click Attach policies under the ** Add Permissions** tab, search for AWSCodeCommitReadOnly policy, click on the checkbox next to the policy name, and click **Attach Policy**.
+Click Attach policies under the ** Add Permissions** tab, search for AWSCodeCommitReadOnly policy, click on the checkbox next to the policy name, and click `Attach Policy`.
 
 Close this tab and return to the AWS Amplify Build configure console.
 
@@ -280,9 +280,29 @@ Refresh the role list by clicking on the circular arrow button, and select the r
 
 
 
+![](./images/32.png)
 
 
 
+Documentation of Failed Deployment on AWS Amplify Console
+
+I attempted to deploy the __wildrydes-webapp-development__ project using the AWS Amplify Console. Despite following the standard deployment process, the deployment failed.
+
+Troubleshooting
+
+
+- Steps Taken: Attempted to manually update the configuration files
+
+- Reviewed amplify.yml, buildspec.yml, package.json etc
+
+
+- Verified IAM roles and permissions
+
+__Outcome__: Same error persisted
+
+Despite my efforts, the build continues to fail with the same error. I am unsure if the issue is related to the environment configuration or a deeper issue with the project setup.
+
+I am still working on resolving the issue and will update any progress.
 
 
 
