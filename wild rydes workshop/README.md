@@ -263,32 +263,34 @@ Next you’ll use the [AWS Amplify Console](https://aws.amazon.com/amplify/hosti
 
 
 
-Now you need to create a new service role with the permissions to deploy the application backend.
+- Now you need to create a new service role with the permissions to deploy the application backend.
 
-Click on Create new role, check that Amplify is selected and click Next permissions, click Next: Tags, click Next: Review.
+- Click on Create new role, check that Amplify is selected and click Next permissions, click Next: Tags, click Next: Review.
 
-Give the Role a new name: wildrydes-backend-role and click Create role.
+- Give the Role a new name: wildrydes-backend-role and click Create role.
 
-Search for `wildrydes-backend-role` from the search filter, and click the role name.
+- Search for `wildrydes-backend-role` from the search filter, and click the role name.
 
-Click Attach policies under the ** Add Permissions** tab, search for AWSCodeCommitReadOnly policy, click on the checkbox next to the policy name, and click `Attach Policy`.
+- Click Attach policies under the ** Add Permissions** tab, search for AWSCodeCommitReadOnly policy, click on the checkbox next to the policy name, and click `Attach Policy`.
 
-Close this tab and return to the AWS Amplify Build configure console.
+- Close this tab and return to the AWS Amplify Build configure console.
 
-Refresh the role list by clicking on the circular arrow button, and select the role created in the step above.
+- Refresh the role list by clicking on the circular arrow button, and select the role created in the step above.
 
+- On the Review page select `Save and deploy`
 
+- This initial build and deploy process may take up to five minutes for Amplify Console to create the neccesary resources and to deploy your code.
 
 
 ![](./images/32.png)
 
 
 
-Documentation of Failed Deployment on AWS Amplify Console
+__Documentation of Failed Deployment on AWS Amplify Console__
 
 I attempted to deploy the __wildrydes-webapp-development__ project using the AWS Amplify Console. Despite following the standard deployment process, the deployment failed.
 
-Troubleshooting
+__Troubleshooting__
 
 
 - Steps Taken: Attempted to manually update the configuration files
