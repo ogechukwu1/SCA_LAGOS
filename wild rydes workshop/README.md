@@ -1,12 +1,21 @@
 
 ## WILD RYDES WORKSHOP
 
+In this workshop, you'll deploy a web application that allows users to request unicorn rides from the Wild Rydes fleet. The application features an HTML-based user interface where users can specify their pick-up location. On the backend, it communicates with a RESTful web service to handle ride requests and dispatch unicorns. Users can also register and log in to request rides.
 
- In this workshop you’ll deploy a simple web application that enables users to request unicorn rides from the Wild Rydes fleet. The application will present users with an HTML based user interface for indicating the location where they would like to be picked up and will interface on the backend with a RESTful web service to submit the request and dispatch a nearby unicorn. The application will also provide facilities for users to register with the service and log in before requesting rides.
+The application's architecture includes several AWS services:
 
- The application architecture uses [AWS Lambda][lambda], [Amazon API Gateway][api-gw], [Amazon S3][s3], [Amazon DynamoDB][dynamodb], [Amazon Cognito][cognito], and [AWS Amplify Console][amplify-console]. Amplify Console hosts static web resources including HTML, CSS, JavaScript, and image files which are loaded in the user’s browser via S3. JavaScript executed in the browser sends and receives data from a public backend API built using Lambda and API Gateway. Amazon Cognito provides user management and authentication functions to secure the backend API. Finally, DynamoDB provides a persistence layer where data can be stored by the API’s Lambda function.
+- AWS Lambda: Executes backend logic for handling ride requests.
 
-See the diagram below for a depiction of the complete architecture.
+- Amazon API Gateway: Manages API requests from the frontend to the backend.
+
+- Amazon S3: Stores static web resources such as HTML, CSS, JavaScript, and images.
+
+- Amazon DynamoDB: Provides a database for storing data used by the Lambda functions.
+
+- Amazon Cognito: Manages user registration, authentication, and access control for the backend API.
+
+- AWS Amplify Console: Hosts the static web resources, serving them to users' browsers via S3. The JavaScript running in the browser interacts with the backend API.
 
 
 
@@ -14,12 +23,18 @@ See the diagram below for a depiction of the complete architecture.
 ![](./images/1.png)
 
 
-AWS CLOUD9 IDE
-AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes pre-packaged with essential tools for popular programming languages and the AWS Command Line Interface (CLI) pre-installed so you don’t need to install files or configure your laptop for this workshop.
+__AWS CLOUD9 IDE__
 
-Your Cloud9 environment will have access to the same AWS resources as the user with which you logged into the AWS Management Console. We strongly recommend using Cloud9 to complete this workshop.
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that you can use directly from your browser. It provides a code editor, debugger, and terminal, making it easy to write, run, and debug your code. Cloud9 comes with pre-installed tools for popular programming languages and the AWS Command Line Interface (CLI), so you don't need to install or configure anything on your laptop.
 
-Take a few minutes now and setup your Cloud9 development environment. Cloud9 works best with Chrome or Firefox, not Safari. It cannot be used from a tablet.
+Your Cloud9 environment will have the same access to AWS resources as your AWS Management Console user. It's recommended to use Cloud9 for this workshop to ensure a seamless setup and integration with AWS services.
+
+To get started, set up your Cloud9 environment now. Note that Cloud9 works best with Chrome or Firefox browsers and is not compatible with tablets or Safari.
+
+
+
+
+
 
 
 __Starting AWS Cloud9__
@@ -83,13 +98,17 @@ In Environment settings:
 
 __STATIC WEB HOSTING__
 
-This section explains the frontend structure. You’ll deploy the static website using AWS Amplify Console by first creating a git repository (in either CodeCommit or GitHub) and then pushing the site code.
+This section covers the frontend structure of your application. You will deploy a static website using AWS Amplify Console by first creating a Git repository (either in CodeCommit or GitHub) and then pushing your site code to it.
 
-In this module you’ll configure AWS Amplify Console to host the static resources for your web application. In subsequent modules you’ll add dynamic functionality to these pages using JavaScript to call remote RESTful APIs built with AWS Lambda and Amazon API Gateway.
+In this module, you will configure AWS Amplify Console to host the static resources (HTML, CSS, JavaScript, and images) for your web application. In the following modules, you will enhance these static pages with dynamic functionality by using JavaScript to interact with remote RESTful APIs built with AWS Lambda and Amazon API Gateway.
 
 __Architecture Overview__
 
-The architecture for this module is very straightforward. All of your static web content including HTML, CSS, JavaScript, images and other files will be managed by AWS Amplify Console and served via Amazon CloudFront. Your end users will then access your site using the public website URL exposed by AWS Amplify Console. You don’t need to run any web servers or use other services in order to make your site available.
+The architecture for this module is simple. All your static web content, such as HTML, CSS, JavaScript, images, and other files, will be managed by AWS Amplify Console and delivered through Amazon CloudFront. Users will access your site via the public URL provided by AWS Amplify Console. You don't need to manage any web servers or other services to make your site available.
+
+
+
+
 
 
 ![](./images/10.png)
@@ -113,9 +132,9 @@ __Create the git repository__
 
 We will use [AWS CodeCommit](https://aws.amazon.com/codecommit/) to host your site’s repository. CodeCommit is included in the [AWS Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&all-free-tier.q=CodeCommit&all-free-tier.q_operator=AND&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all).
 
-CodeCommit helper
-The AWS Cloud9 development environment comes with AWS managed temporary credentials that are associated with your IAM user. You use these credentials with the AWS [git-remote-codecommit](https://github.com/aws/git-remote-codecommit) tool (A Git Remote Helper that makes it easier to interact with AWS CodeCommit). This tool is installed in Cloud9 by default. You can install it on your own machine by following the [installation instructions](https://github.com/aws/git-remote-codecommit#set-up).
+__CodeCommit__ 
 
+The AWS Cloud9 development environment provides AWS managed temporary credentials linked to your IAM user. These credentials are used with the [git-remote-codecommit tool](https://github.com/aws/git-remote-codecommit), which simplifies interactions with AWS CodeCommit. This tool is pre-installed in Cloud9. If you want to use it on your own machine, you can follow the [installation instructions](https://github.com/aws/git-remote-codecommit#set-up).
 
 
 __Setting up your CodeCommit repository__
@@ -226,7 +245,7 @@ __Setting up your CodeCommit repository__
 
 __Deploy the site with AWS Amplify Console__
 
-Next you’ll use the [AWS Amplify Console](https://aws.amazon.com/amplify/hosting/) to deploy the website you’ve just commited to git. The Amplify Console takes care of the work of setting up a place to store your static web application code and provides a number of helpful capabilities to simplify both the lifecycle of that application as well as enable best practices.
+Next you’ll use the [AWS Amplify Console](https://aws.amazon.com/amplify/hosting/) to deploy the website you've committed to Git. The Amplify Console handles setting up storage for your static web application code and offers various features to simplify the application's lifecycle and promote best practices.
 
 - Launch the [Amplify Console](https://us-west-1.console.aws.amazon.com/amplify/apps)
 
@@ -263,23 +282,53 @@ Next you’ll use the [AWS Amplify Console](https://aws.amazon.com/amplify/hosti
 
 
 
-- Now you need to create a new service role with the permissions to deploy the application backend.
+__Create a New Service Role:__
 
-- Click on Create new role, check that Amplify is selected and click Next permissions, click Next: Tags, click Next: Review.
+- Go to the AWS Management Console and navigate to the IAM section.
 
-- Give the Role a new name: wildrydes-backend-role and click Create role.
+- Click on "Create new role."
 
-- Search for `wildrydes-backend-role` from the search filter, and click the role name.
+- Ensure "Amplify" is selected and click "Next: Permissions."
 
-- Click Attach policies under the ** Add Permissions** tab, search for AWSCodeCommitReadOnly policy, click on the checkbox next to the policy name, and click `Attach Policy`.
+- Click "Next: Tags" without adding any tags.
 
-- Close this tab and return to the AWS Amplify Build configure console.
+- Click "Next: Review."
 
-- Refresh the role list by clicking on the circular arrow button, and select the role created in the step above.
+- Name the role `wildrydes-backend-role`.
 
-- On the Review page select `Save and deploy`
+- Click "Create role."
 
-- This initial build and deploy process may take up to five minutes for Amplify Console to create the neccesary resources and to deploy your code.
+__Attach the AWSCodeCommitReadOnly Policy:__
+
+- In the IAM console, search for __wildrydes-backend-role__ using the search filter.
+
+- Click on the role name.
+
+- Under the Add Permissions tab, click "Attach policies."
+
+- Search for the `AWSCodeCommitReadOnly` policy.
+
+- Check the box next to the policy name.
+
+- Click "Attach Policy."
+
+__Return to AWS Amplify Console:__
+
+- Close the IAM tab and return to the AWS Amplify Console.
+
+- Refresh the role list by clicking the circular arrow button.
+
+- Select the `wildrydes-backend-role` from the refreshed list.
+
+__Save and Deploy:__
+
+- On the Review page in the Amplify Console, click "Save and deploy."
+
+- The initial build and deploy process may take up to five minutes as Amplify Console sets up the necessary resources and deploys your code.
+
+
+
+
 
 
 ![](./images/32.png)
@@ -305,6 +354,8 @@ __Outcome__: Same error persisted
 Despite my efforts, the build continues to fail with the same error. I am unsure if the issue is related to the environment configuration or a deeper issue with the project setup.
 
 I am still working on resolving the issue and will update any progress.
+
+
 
 
 
