@@ -86,9 +86,9 @@ In Environment settings:
 
 ```
 {
-    "UserId": "369790854319",
-    "Account": "369790854319",
-    "Arn": "arn:aws:iam::369790854319:root"
+    "UserId": "3697........",
+    "Account": "3697........",
+    "Arn": "arn:aws:iam::3697........:root"
 }
 ```
 
