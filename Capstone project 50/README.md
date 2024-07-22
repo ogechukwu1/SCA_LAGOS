@@ -148,13 +148,6 @@ __Test your domain__
 ![](./images/20.png)
 
 
-![](./images/21.png)
-
-
-
-![](./images/22.png)
-
-
 
 
 
