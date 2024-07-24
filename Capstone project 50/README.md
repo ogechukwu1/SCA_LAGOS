@@ -10,7 +10,7 @@
 __Using AWS S3 for Static Website hosting__
 
 
-- Create an S3 Bucket: Ensure the bucket name matches your domain name (e.g., `ogechukwu.site`).
+- Create an S3 Bucket: Ensure the bucket name matches your domain name (e.g., `ogechukwu.site`). Having a bucket name that matches your domain name allows you to directly map your domain to the S3 bucket.
 
 - Go to the S3 console.
 
