@@ -41,13 +41,13 @@ __Key Components of a JSON Policy__
 
 __Version__: Specifies the language current version of the policy. 
 
-__Statement:__ The main body of the policy, which includes one or more individual statements (or rules). Each statement has several components:
+__Statement:__ Contains a single statement, Each statement has several components:
 
 - Effect: Specifies whether the statement allows or denies access. It can be "Allow" or "Deny".
 
 - Action: Specifies the AWS service actions that are allowed or denied (eg., "s3", "ec2").
 
-- Resource: Specifies the AWS resources to which the actions apply (eg., an S3 bucket, an EC2 instance).
+- Resource: Specifies the bucket ("arn:aws:s3:::example-bucket") and all objects within the bucket ("arn:aws:s3:::example-bucket/*").
 
 
 
